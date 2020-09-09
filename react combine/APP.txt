@@ -1,0 +1,29 @@
+import React, { Component } from "react";
+import { Provider } from 'react-redux';
+import reducerA from "./Components/Combine/reducerA";
+import reducerB from "./Components/Combine/reducerB";
+import { createStore, combineReducers } from "redux";
+import  Reducers  from "./Components/Combine/Reducers";
+import Counter from './Components/Counter';
+
+const rootReducer = combineReducers({
+   reducerA,
+   reducerB
+});
+ const store = createStore(rootReducer);
+
+
+class App extends Component {
+  render() {
+    
+    return (
+      <Provider store={store}>
+      <div className="App">
+        <Reducers/>
+       
+      </div>
+    </Provider>
+    );
+  }
+}
+export default App;
