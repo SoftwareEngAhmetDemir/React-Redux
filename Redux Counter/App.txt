@@ -1,0 +1,24 @@
+import React from 'react';
+import logo from './logo.svg';
+
+import './App.css';
+import counter from './Components/Reducer';
+import CounterComp from './CounterComp';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux';
+class App extends React.Component {
+ 
+   
+render(){
+  let store = createStore(counter);
+  return (
+    <Provider store={store}>
+    <div className="App">
+<CounterComp/>
+    </div>
+    </Provider>
+  );
+}
+}
+
+export default App;
